@@ -10,3 +10,5 @@ json.website_url student.website_url
 json.online_resume student.online_resume
 json.github_url student.github_url
 json.photo student.photo
+# json.password student.password
+# json.password_confirmation student.password_confirmation

@@ -1,16 +1,16 @@
 class StudentsController < ApplicationController
   def index
-    @students = Student.all
+    students = Student.all
     render :index
   end
 
   def show
-    @student = Student.find_by(id: params[:id])
+    student = Student.find_by(id: params[:id])
     render :show
   end
 
   def create
-    @student = Student.create(
+    student = Student.create(
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
@@ -31,7 +31,6 @@ class StudentsController < ApplicationController
     else
       render json: { errors: student.errors.full_messages }, status: :bad_request
     end
-    render :show
   end
 
   def update
