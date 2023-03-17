@@ -22,7 +22,15 @@ class StudentsController < ApplicationController
       online_resume: params[:online_resume],
       github_url: params[:github_url],
       photo: params[:photo],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation],
     )
+
+    if student.save
+      render json: { message: "Student created successfully" }, status: :created
+    else
+      render json: { errors: student.errors.full_messages }, status: :bad_request
+    end
     render :show
   end
 
